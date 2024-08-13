@@ -17,6 +17,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").resources.assets.balls.communication.network_remote_event:FireServer(unpack(args))
+game:GetService("ReplicatedStorage").resources.assets.balls.communication.network_remote_event:FireServer(unpack(args))
 end
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer({["name"] = "defense",["origin"] = "balltargets"},{})
 end
@@ -37,9 +38,9 @@ Tab:AddToggle({
 task.spawn(function()
 while task.wait() do
 if autoparry then
-for i = 1,4 do
 task.spawn(shoot)
-end
+task.spawn(shoot)
+task.spawn(shoot)
 end
 end
 end)
