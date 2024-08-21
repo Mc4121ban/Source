@@ -17,4 +17,4 @@ setmetatable(_G, {
     end
 })
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/kigredns/sanderxvip/main/vipvipsanderx.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kigredns/sanderxvip/9e77dc99646387be7783287dd569642aa3e7c877/vipvipsanderx.lua"))()
