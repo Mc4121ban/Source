@@ -736,18 +736,31 @@ function Module:create_button()
     button.BorderColor3 = Color3.fromRGB(0, 0, 0)
     button.BorderSizePixel = 0
     button.Size = UDim2.new(0, 215, 0, 37)
-    button.AutoButtonColor = false
-    button.Font = Enum.Font.SourceSans
+    button.AutoButtonColor = true
+    button.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
     button.Text = self.name
     button.TextColor3 = Color3.fromRGB(255, 255, 255)
     button.TextSize = 14.000
-    button.TextScaled = true
-    button.TextWrapped = true
 
     local UICorner = Instance.new("UICorner")
     UICorner.CornerRadius = UDim.new(0, 10)
     UICorner.Parent = button
-    button.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.SemiBold)
+
+    local UIGradient = Instance.new("UIGradient")
+    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(66, 89, 182)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(37, 57, 137))}
+    UIGradient.Rotation = 20
+    UIGradient.Parent = button
+
+    local Glow = Instance.new("ImageLabel")
+    Glow.Name = "Glow"
+    Glow.Parent = button
+    Glow.AnchorPoint = Vector2.new(0.5, 0.5)
+    Glow.BackgroundTransparency = 1.000
+    Glow.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Glow.Size = UDim2.new(1.5, 0, 2, 0)
+    Glow.Image = "rbxassetid://5028857084"
+    Glow.ImageColor3 = Color3.fromRGB(66, 89, 182)
+    Glow.ImageTransparency = 0.5
 
     button.MouseButton1Click:Connect(function()
         self.callback()
