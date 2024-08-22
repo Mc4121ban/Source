@@ -752,7 +752,7 @@ function Library.__init()
 			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			TextLabel.BorderSizePixel = 0
-			TextLabel.Position = UDim2.new(0.444953382, 0, 0.5, 0)
+			TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
 			TextLabel.Size = UDim2.new(0, 164, 0, 15)
 			TextLabel.ZIndex = 2
 			TextLabel.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.SemiBold)
