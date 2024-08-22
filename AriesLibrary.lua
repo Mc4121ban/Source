@@ -747,6 +747,7 @@ function Module:create_button()
     local UICorner = Instance.new("UICorner")
     UICorner.CornerRadius = UDim.new(0, 10)
     UICorner.Parent = button
+    button.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.SemiBold)
 
     button.MouseButton1Click:Connect(function()
         self.callback()
