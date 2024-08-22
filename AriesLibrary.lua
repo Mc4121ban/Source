@@ -726,49 +726,47 @@ function Library.__init()
 				self.callback(Library.Flags[self.flag])
 			end)
 		end
-function Module:create_button()
-	local section = self.section == 'left' and left_section or right_section
+        function Module:create_button()
+			local section = self.section == 'left' and left_section or right_section
 
-	local button = Instance.new("TextButton")
-	button.Name = "Button"
-	button.Parent = section
-	button.BackgroundColor3 = Color3.fromRGB(27, 28, 33)
-	button.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	button.BorderSizePixel = 0
-	button.Size = UDim2.new(0, 215, 0, 37)
-	button.AutoButtonColor = false
-	button.Font = Enum.Font.SourceSans
-	button.Text = ""
-	button.TextColor3 = Color3.fromRGB(0, 0, 0)
-	button.TextSize = 14.000
-	
-	local UICorner = Instance.new("UICorner")
-	UICorner.CornerRadius = UDim.new(0, 10)
-	UICorner.Parent = button
+			local button = Instance.new("TextButton")
+			button.Name = "button"
+			button.Parent = section
+			button.BackgroundColor3 = Color3.fromRGB(27, 28, 33)
+			button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			button.BorderSizePixel = 0
+			button.Size = UDim2.new(0, 215, 0, 37)
+			button.AutoButtonColor = false
+			button.Font = Enum.Font.SourceSans
+			button.Text = ""
+			button.TextColor3 = Color3.fromRGB(0, 0, 0)
+			button.TextSize = 14.000
+			local UICorner = Instance.new("UICorner")
+			UICorner.CornerRadius = UDim.new(0, 10)
+			UICorner.Parent = button
 
-	local TextLabel = Instance.new("TextLabel")
-	TextLabel.Parent = button
-	TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-	TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel.BackgroundTransparency = 1.000
-	TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	TextLabel.BorderSizePixel = 0
-	TextLabel.Position = UDim2.new(0.444953382, 0, 0.5, 0)
-	TextLabel.Size = UDim2.new(0, 164, 0, 15)
-	TextLabel.ZIndex = 2
-	TextLabel.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.SemiBold)
-	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextLabel.TextScaled = true
-	TextLabel.TextSize = 14.000
-	TextLabel.TextWrapped = true
-	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-	TextLabel.Text = self.name
+			local TextLabel = Instance.new("TextLabel")
+			TextLabel.Parent = button
+			TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.BackgroundTransparency = 1.000
+			TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+			TextLabel.BorderSizePixel = 0
+			TextLabel.Position = UDim2.new(0.444953382, 0, 0.5, 0)
+			TextLabel.Size = UDim2.new(0, 164, 0, 15)
+			TextLabel.ZIndex = 2
+			TextLabel.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.SemiBold)
+			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.TextScaled = true
+			TextLabel.TextSize = 14.000
+			TextLabel.TextWrapped = true
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+			TextLabel.Text = self.name
 
-	button.MouseButton1Click:Connect(function()
-		self.callback()
-	end)
-end
-
+			button.MouseButton1Click:Connect(function()
+	self.callback()
+			end)
+		end
         function Module:update_slider()
 			local result = math.clamp((Mouse.X - self.slider.Box.AbsolutePosition.X) / self.slider.Box.AbsoluteSize.X, 0, 1)
 
