@@ -726,7 +726,32 @@ function Library.__init()
 				self.callback(Library.Flags[self.flag])
 			end)
 		end
+function Module:create_button()
+    local section = self.section == 'left' and left_section or right_section
 
+    local button = Instance.new("TextButton")
+    button.Name = "Button"
+    button.Parent = section
+    button.BackgroundColor3 = Color3.fromRGB(27, 28, 33)
+    button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    button.BorderSizePixel = 0
+    button.Size = UDim2.new(0, 215, 0, 37)
+    button.AutoButtonColor = false
+    button.Font = Enum.Font.SourceSans
+    button.Text = self.name
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.TextSize = 14.000
+    button.TextScaled = true
+    button.TextWrapped = true
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 10)
+    UICorner.Parent = button
+
+    button.MouseButton1Click:Connect(function()
+        self.callback()
+    end)
+end
 
         function Module:update_slider()
 			local result = math.clamp((Mouse.X - self.slider.Box.AbsolutePosition.X) / self.slider.Box.AbsoluteSize.X, 0, 1)
