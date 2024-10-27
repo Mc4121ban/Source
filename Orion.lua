@@ -429,7 +429,10 @@ function OrionLib:MakeNotification(NotificationConfig)
 		NotificationFrame:Destroy()
 	end)
 end    
-
+local function getGameName(gameId)
+    local response = request({ Url = "https://games.roblox.com/v1/games?universeIds=" .. gameId, Method = "GET" })
+    return response.StatusCode == 200 and game:GetService("HttpService"):JSONDecode(response.Body).data[1].name or "Error Get Game Name"
+end
 function OrionLib:Init()
 	if OrionLib.SaveCfg then	
 		pcall(function()
@@ -437,7 +440,7 @@ function OrionLib:Init()
 				LoadCfg(readfile(OrionLib.Folder .. "/" .. game.GameId .. ".txt"))
 				OrionLib:MakeNotification({
 					Name = "Configuration",
-					Content = "Auto-loaded configuration for the game " .. game.GameId .. ".",
+					Content = "Auto-loaded configuration for the game " .. getGameName(game.GameId) .. ".",
 					Time = 5
 				})
 			end
