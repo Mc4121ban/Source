@@ -433,20 +433,23 @@ local function getGameName(gameId)
     local response = request({ Url = "https://games.roblox.com/v1/games?universeIds=" .. gameId, Method = "GET" })
     return response.StatusCode == 200 and game:GetService("HttpService"):JSONDecode(response.Body).data[1].name or "Error Get Game Name"
 end
+
 function OrionLib:Init()
-	if OrionLib.SaveCfg then	
+	if OrionLib.SaveCfg then
 		pcall(function()
-			if isfile(OrionLib.Folder .. "/" .. game.GameId .. ".txt") then
-				LoadCfg(readfile(OrionLib.Folder .. "/" .. game.GameId .. ".txt"))
+			local configPath = OrionLib.Folder .. "/" .. game.GameId .. ".txt"
+			if isfile(configPath) then
+				LoadCfg(readfile(configPath))
 				OrionLib:MakeNotification({
 					Name = "Configuration",
-					Content = "Auto-loaded configuration for the game " .. getGameName(game.GameId) .. ".",
+					Content = "[" .. getGameName(game.GameId) .. "] Auto-loaded configuration.",
 					Time = 5
 				})
 			end
-		end)		
+		end)
 	end	
-end	
+end
+
 
 function OrionLib:MakeWindow(WindowConfig)
 	local FirstTab = true
