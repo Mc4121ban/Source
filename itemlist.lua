@@ -1,4 +1,4 @@
-local a = {
+return {
     ["misc"] = {
         ["Golden tomato seeds"] = "GoldenTomatoSeeds",
         ["Grow your plants in upmost luxury"] = "DiamondPot",
